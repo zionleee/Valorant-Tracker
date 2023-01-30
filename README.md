@@ -17,7 +17,7 @@ Valorant performance tracker in order to record and check on my progress.
 ## User Stories
 - User wants to record Valorant Matches played 
 - User wants to view Match History
-- User wants to search for all Matches played on specific date
+- User wants to search for all Matches played on a specific date
 - User wants to view statistics on their win ratio
 - User wants to view Statistics on their K/D
 
