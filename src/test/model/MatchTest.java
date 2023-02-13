@@ -3,8 +3,7 @@ package model;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.*;
 
 class MatchTest {
     private Match match1;
@@ -28,6 +27,7 @@ class MatchTest {
     private Match match19 = new Match("11/03/2023", true, "r", "i", 25, 12, 14);
     private Match match20 = new Match("11/03/2023", true, "ra", "i", 25, 12, 14);
 
+    private Match match21 = new Match("11/03/2023", true, "z", "z", 25, 12, 14);
 
     @BeforeEach
     public void setUp() {
@@ -47,7 +47,6 @@ class MatchTest {
         assertEquals("10.0/14.0/5.0", match1.getKda());
     }
 
-
     @Test
     public void mapTypeTest() {
         assertEquals("Ascent", match3.getMap());
@@ -59,13 +58,11 @@ class MatchTest {
         assertEquals("Split", match9.getMap());
 
         assertEquals("Split", match9.mapType());
+        assertTrue(match9.mapType() == "Split");
 
-
-
-
+        assertEquals("Unrecognized Valorant Map", match21.mapType());
+        assertEquals("Unrecognized Valorant Map", match21.getMap());
     }
-
-
 
     @Test
     public void agentTypeTest() {
@@ -89,7 +86,10 @@ class MatchTest {
         assertEquals("Raze", match20.getAgent());
 
         assertEquals("Raze", match20.agentType());
+        assertTrue(match20.agentType() == "Raze");
 
+        assertEquals("Unrecognized Valorant Agent", match21.agentType());
+        assertEquals("Unrecognized Valorant Agent", match21.getAgent());
 
     }
 }

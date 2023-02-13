@@ -69,8 +69,8 @@ public class Match {
             case "ra": return "Raze";
             case "y": return "Yoru";
             case "n": return "Neon";
+            default: return "Unrecognized Valorant Agent";
         }
-        return agent;
     }
 
     public String getAgent() {
@@ -95,8 +95,8 @@ public class Match {
                 return "Pearl";
             case "s":
                 return "Split";
+            default: return "Unrecognized Valorant Map";
         }
-        return map;
     }
 
     public String getMap() {
