@@ -57,8 +57,9 @@ class MatchTest {
         assertEquals("Lotus", match7.getMap());
         assertEquals("Pearl", match8.getMap());
         assertEquals("Split", match9.getMap());
-
     }
+
+
 
     @Test
     public void agentTest() {
@@ -80,6 +81,5 @@ class MatchTest {
         assertEquals("Jett", match18.getAgent());
         assertEquals("Reyna", match19.getAgent());
         assertEquals("Raze", match20.getAgent());
-
     }
 }

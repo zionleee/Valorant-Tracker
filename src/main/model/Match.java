@@ -47,7 +47,7 @@ public class Match {
     // so=Sova, k=KAY/O, f=Fade, br=Breach, sk=Skye, phx=Phoenix, j=Jett, r=Reyna, ra=Raze, y=Yoru, n=Neon
     @SuppressWarnings("methodlength")
     public String getAgent() {
-        String agentPlayed = agent;
+//        String agentPlayed = agent;
         switch (agent) {
             case "b": return "Brimstone";
             case "v": return "Viper";
@@ -70,12 +70,12 @@ public class Match {
             case "y": return "Yoru";
             case "n": return "Neon";
         }
-        return agentPlayed;
+        return agent;
     }
 
     //a=Ascent, f=Fracture, h=Haven, i=Icebox, l=Lotus, p=Pearl , s=Split
     public String getMap() {
-        String mapPlayed = map;
+//        String mapPlayed = map;
         switch (map) {
             case "a":
                 return "Ascent";
@@ -92,7 +92,7 @@ public class Match {
             case "s":
                 return "Split";
         }
-        return mapPlayed;
+        return map;
     }
 
     //TODO: edited kda --> int to double
