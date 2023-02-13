@@ -49,7 +49,7 @@ class MatchTest {
 
 
     @Test
-    public void mapTest() {
+    public void mapTypeTest() {
         assertEquals("Ascent", match3.getMap());
         assertEquals("Fracture", match4.getMap());
         assertEquals("Haven", match5.getMap());
@@ -57,12 +57,18 @@ class MatchTest {
         assertEquals("Lotus", match7.getMap());
         assertEquals("Pearl", match8.getMap());
         assertEquals("Split", match9.getMap());
+
+        assertEquals("Split", match9.mapType());
+
+
+
+
     }
 
 
 
     @Test
-    public void agentTest() {
+    public void agentTypeTest() {
         assertEquals("Brimstone", match3.getAgent());
         assertEquals("Viper", match4.getAgent());
         assertEquals("Omen", match5.getAgent());
@@ -81,5 +87,9 @@ class MatchTest {
         assertEquals("Jett", match18.getAgent());
         assertEquals("Reyna", match19.getAgent());
         assertEquals("Raze", match20.getAgent());
+
+        assertEquals("Raze", match20.agentType());
+
+
     }
 }
