@@ -36,6 +36,7 @@ public class MatchHistoryTest {
     @Test
     public void constructorTest() {
         assertEquals(0, matchHistory.getNumTotalGames());
+        assertEquals(0, matchHistory.getMatchHistory().size());
     }
 
     @Test
@@ -83,12 +84,6 @@ public class MatchHistoryTest {
         assertEquals(66.66666666666666, matchHistory.calculateWinRate());
     }
 
-    //(String date, boolean win, String agent, String map, int k, int d, int a)
-//    match1 = new Match("11/02/2023", false, "Jett", "Pearl", 10, 14, 5);
-//    match2 = new Match("01/02/2023", true, "Viper", "Icebox", 25, 12, 14);
-
-//    match3 = new Match("02/02/2023", true, "Fade", "Haven", 10, 15, 10);
-//    match4 = new Match("02/02/2023", false, "Brimstone", "Lotus", 2, 15, 10);
 
     @Test
     public void searchMatchesDateTestOneGame() {
@@ -136,8 +131,6 @@ public class MatchHistoryTest {
         assertEquals(4, matchHistory.getNumTotalGames());
 
         assertTrue(matchHistory.findMatch("55/55/2055").isEmpty());
-
-
 
     }
 

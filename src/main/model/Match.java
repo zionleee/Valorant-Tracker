@@ -42,6 +42,7 @@ public class Match {
         return win;
     }
 
+    //regulating agent pool
     //b=Brimstone, v=Viper, o=Omen, h=Harbor, a=Astra, kj=Killjoy, cyp=Cypher, sa=Sage, c=Chamber,
     // so=Sova, k=KAY/O, f=Fade, br=Breach, sk=Skye, phx=Phoenix, j=Jett, r=Reyna, ra=Raze, y=Yoru, n=Neon
     @SuppressWarnings("methodlength")
