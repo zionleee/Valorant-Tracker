@@ -1,5 +1,9 @@
 package model;
 
+
+
+import java.io.File;
+import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -64,8 +68,8 @@ public class MatchHistory {
 
         List<Match> matchList = new ArrayList<>();
 
-        for (Match match : this.matches) {
-            if (date == match.getDate()) {
+        for (Match match : matches) {
+            if (match.getDate().equals(date)) {
                 matchList.add(match);
             }
         }
@@ -76,6 +80,32 @@ public class MatchHistory {
 
         return matchList;
     }
+
+//    public boolean loadDataFromSave(String path) {
+//        try {
+//            File file = FileManager.getFile(path);
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//
+//        return false;
+//    }
+
+//    public boolean saveData(String path) {
+//        try {
+//            File file = FileManager.getFile(path);
+//            FileWriter writer = new FileWriter(file);
+//            for (Match match : matches) {
+//                writer.append("");
+//            }
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//            return false;
+//        }
+//        return false;
+//    }
+
 
 
 }

@@ -42,34 +42,56 @@ public class Match {
         return win;
     }
 
-    //regulating agent pool
-    //b=Brimstone, v=Viper, o=Omen, h=Harbor, a=Astra, kj=Killjoy, cyp=Cypher, sa=Sage, c=Chamber,
-    // so=Sova, k=KAY/O, f=Fade, br=Breach, sk=Skye, phx=Phoenix, j=Jett, r=Reyna, ra=Raze, y=Yoru, n=Neon
+
     @SuppressWarnings("methodlength")
+    //EFFECTS: returns this match's agent type
+    //          b=Brimstone, v=Viper, o=Omen, h=Harbor, a=Astra, kj=Killjoy, cyp=Cypher, sa=Sage, c=Chamber,
+    //          so=Sova, k=KAY/O, f=Fade, br=Breach, sk=Skye, phx=Phoenix, j=Jett, r=Reyna, ra=Raze, y=Yoru, n=Neon
     public String agentType() {
 //        String agentPlayed = agent;
         switch (agent) {
-            case "b": return "Brimstone";
-            case "v": return "Viper";
-            case "o": return "Omen";
-            case "h": return "Harbor";
-            case "a": return "Astra";
-            case "kj": return "Killjoy";
-            case "cyp": return "Cypher";
-            case "sa": return "Sage";
-            case "c": return "Chamber";
-            case "so": return "Sova";
-            case "k": return "KAY/O";
-            case "f": return "Fade";
-            case "br": return "Breach";
-            case "sk": return "Skye";
-            case "phx": return "Phoenix";
-            case "j": return "Jett";
-            case "r": return "Reyna";
-            case "ra": return "Raze";
-            case "y": return "Yoru";
-            case "n": return "Neon";
-            default: return "Unrecognized Valorant Agent";
+            case "b":
+                return "Brimstone";
+            case "v":
+                return "Viper";
+            case "o":
+                return "Omen";
+            case "h":
+                return "Harbor";
+            case "a":
+                return "Astra";
+            case "kj":
+                return "Killjoy";
+            case "cyp":
+                return "Cypher";
+            case "sa":
+                return "Sage";
+            case "c":
+                return "Chamber";
+            case "so":
+                return "Sova";
+            case "k":
+                return "KAY/O";
+            case "f":
+                return "Fade";
+            case "br":
+                return "Breach";
+            case "sk":
+                return "Skye";
+            case "phx":
+                return "Phoenix";
+            case "j":
+                return "Jett";
+            case "r":
+                return "Reyna";
+            case "ra":
+                return "Raze";
+            case "y":
+                return "Yoru";
+            case "n":
+                return "Neon";
+            default:
+                return "Unrecognized Valorant Agent";
         }
     }
 
@@ -77,6 +99,7 @@ public class Match {
         return agentType();
     }
 
+    //EFFECTS: returns this match's map type
     //a=Ascent, f=Fracture, h=Haven, i=Icebox, l=Lotus, p=Pearl , s=Split
     public String mapType() {
 //        String mapPlayed = map;
@@ -95,7 +118,8 @@ public class Match {
                 return "Pearl";
             case "s":
                 return "Split";
-            default: return "Unrecognized Valorant Map";
+            default:
+                return "Unrecognized Valorant Map";
         }
     }
 
@@ -121,6 +145,10 @@ public class Match {
 
         return kda;
     }
+
+//    public String serialize() {
+//        return date + "-" + win + "-" + agent + "-" + map + " ";
+//    }
 
 
 }

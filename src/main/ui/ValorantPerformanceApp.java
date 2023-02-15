@@ -9,8 +9,9 @@ import java.util.Scanner;
 
 public class ValorantPerformanceApp {
 
-    private MatchHistory playerValorantCareer;
+//    private static final String PATH = "save.txt";
 
+    private MatchHistory playerValorantCareer;
     private Scanner input;
 
 
@@ -22,7 +23,18 @@ public class ValorantPerformanceApp {
     //MODIFIES: this
     //EFFECTS: processes user input
     private void runTracker() {
+        // if instance not created yet --> instantiate new history
+        // else, use history already created
+
+//        if (playerValorantCareer == null) {
+//            init();
+//        } else {
+//            input = new Scanner(System.in);
+//            input.useDelimiter("\n");
+//        }
+
         init();
+
         boolean keepGoing = true;
         String command = "";
 
@@ -65,7 +77,7 @@ public class ValorantPerformanceApp {
     // EFFECTS: initializes player tracker profile with empty match history
     private void init() {
         this.playerValorantCareer = new MatchHistory();
-
+//        playerValorantCareer.loadDataFromSave(PATH);
         input = new Scanner(System.in);
         input.useDelimiter("\n");
     }
@@ -83,9 +95,7 @@ public class ValorantPerformanceApp {
 
 
     //MODIFIES: this
-    //EFFECTS: records match with date, WinOrLose, agent, map, and k, d, a
-    //          and adds match to match history
-    //(String date, boolean win, String agent, String map, double k, double d, double a)
+    //EFFECTS: records match to match history with date, WinOrLose, agent, map, and k, d, a
     private void recordMatch() {
         System.out.print("Enter date (dd/MM/yyyy): ");
         String date = input.next();
@@ -121,12 +131,19 @@ public class ValorantPerformanceApp {
     }
 
     //TODO: problem-> "No matches found because match history is not being saved
+    // MUST FIX THIS AND MAKE IT WORK!!!!!!!!!!!!!!!
     //EFFECT: displays matches played on date searched
     private void displaySearchedMatches() {  //MatchHistory --> List<Match>
         System.out.print("Enter search date (dd/MM/yyyy): ");
         String dateSearch = input.next();
 
+        //gives us a new list of matches
         List<Match> matchesSearched = playerValorantCareer.findMatch(dateSearch);
+
+        //testing
+        System.out.println(dateSearch);
+        System.out.println(playerValorantCareer.getNumTotalGames());
+
         displayMatches(matchesSearched);
     }
 
@@ -149,6 +166,7 @@ public class ValorantPerformanceApp {
         }
     }
 
+    //EFFECTS: displays player kda Ratio from all matches played
     private void displayKdaRatio() {
         double kda = playerValorantCareer.calculateKda();
         DecimalFormat df = new DecimalFormat("#.00");
@@ -156,6 +174,7 @@ public class ValorantPerformanceApp {
         System.out.println("PLAYER K/D/A RATIO: " + df.format(kda));
     }
 
+    //EFFECTS: displays player win rate from all matches played
     private void displayWinRate() {
         double winRate = playerValorantCareer.calculateWinRate();
         DecimalFormat df = new DecimalFormat("#.00");
