@@ -21,3 +21,6 @@ Valorant performance tracker in order to record and check on my progress.
 - User wants to view statistics on their win ratio
 - User wants to view Statistics on their K/D
 
+- User wants to save Valorant Match History
+- User chooses to reload previously saved Valorant Match History
+
