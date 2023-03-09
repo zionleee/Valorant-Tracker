@@ -1,5 +1,7 @@
 package model;
 
+import org.json.JSONObject;
+
 import javax.swing.*;
 import java.text.SimpleDateFormat;
 
@@ -32,6 +34,11 @@ public class Match {
         this.death = d;
         this.assist = a;
     }
+
+//    public Match(JSONObject jsonObject) {
+//        this(match.getLong("workPeriod"), session.getLong("restPeriod"),
+//                session.getString("workSubject"), session.getString("restSubject"));
+//    }
 
 
     public String getDate() {
@@ -149,6 +156,22 @@ public class Match {
 //    public String serialize() {
 //        return date + "-" + win + "-" + agent + "-" + map + " ";
 //    }
+
+    // EFFECTS: returns this as JSON object
+    public JSONObject toJson() {
+        JSONObject obj = new JSONObject();
+
+        obj.put("date", date)
+                .put("win", win)
+                .put("agent", agent)
+                .put("map", map)
+                .put("kill", kill)
+                .put("death", death)
+                .put("assist", assist)
+                .put("kda", kda);
+        System.out.println("match obj: " + obj.toString());
+        return obj;
+    }
 
 
 }

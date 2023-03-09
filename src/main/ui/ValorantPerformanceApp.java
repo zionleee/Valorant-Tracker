@@ -2,23 +2,32 @@ package ui;
 
 import model.Match;
 import model.MatchHistory;
+import persistence.JsonReader;
+import persistence.JsonWriter;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Scanner;
 
+
 //Valorant Performance Application
 public class ValorantPerformanceApp {
-
-//    private static final String PATH = "save.txt";
-
     private MatchHistory playerValorantCareer;
     private Scanner input;
+
+    private static final String JSON_STORE = "./data/MatchHistory.json";
+    private JsonWriter jsonWriter;
+    private JsonReader jsonReader;
 
 
     //EFFECTS: runs the Valorant Performance Tracker Application
     public ValorantPerformanceApp() {
+        jsonWriter = new JsonWriter(JSON_STORE);
+        jsonReader = new JsonReader(JSON_STORE);
         runTracker();
+
     }
 
     //MODIFIES: this
@@ -69,6 +78,10 @@ public class ValorantPerformanceApp {
             displayKdaRatio();
         } else if (command.equals("w")) {
             displayWinRate();
+        } else if (command.equals("sv")) {
+            saveSession();
+        } else if (command.equals("rl")) {
+            reloadSession();
         } else {
             System.out.println("Selection not valid...");
         }
@@ -91,6 +104,8 @@ public class ValorantPerformanceApp {
         System.out.println("\ts -> search for Matches");
         System.out.println("\tk -> display KDA Ratio");
         System.out.println("\tw -> display Win Rate");
+        System.out.println("\tsv -> save Match History");
+        System.out.println("\trl -> reload Match History");
         System.out.println("\tx -> exit app");
     }
 
@@ -182,6 +197,37 @@ public class ValorantPerformanceApp {
 
         System.out.println("WIN RATE: " + df.format(winRate) + "%");
     }
+
+    //TODO:
+
+    // EFFECTS: saves the workroom to file
+    private void saveSession() {
+        try {
+            jsonWriter.open();
+            jsonWriter.write(playerValorantCareer);
+            jsonWriter.close();
+            System.out.println("Saved matches to " + JSON_STORE);
+        } catch (FileNotFoundException e) {
+            System.out.println("Unable to write to file: " + JSON_STORE);
+        }
+    }
+
+    // MODIFIES: this
+    // EFFECTS: loads workroom from file
+    private void reloadSession() {
+        try {
+            playerValorantCareer = jsonReader.loadMatchHistory();
+            if (playerValorantCareer == null) {
+                System.out.println("Error loading file");
+            }
+            System.out.println("Loaded " + playerValorantCareer.getMatchHistory().size() + " from " + JSON_STORE);
+        } catch (Exception ex) {
+            System.out.println("Failed to load match history");
+            ex.printStackTrace();
+        }
+    }
+
+
 
 
 }
