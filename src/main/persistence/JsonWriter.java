@@ -12,7 +12,6 @@ import java.io.*;
 // Credits to Paul Carter for the project files at https://github.students.cs.ubc.ca/CPSC210/JsonSerializationDemo
 
 public class JsonWriter {
-    private static final int TAB = 4;
     private PrintWriter writer;
     private String destination;
 
@@ -29,7 +28,7 @@ public class JsonWriter {
     }
 
     // MODIFIES: this
-    // EFFECTS: writes JSON representation of workroom to file
+    // EFFECTS: writes JSON representation of match history to file
     public void write(MatchHistory matches) {
         System.out.println("in match history");
         JSONObject obj = new JSONObject();

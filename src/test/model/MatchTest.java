@@ -1,5 +1,6 @@
 package model;
 
+import org.json.JSONObject;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -91,5 +92,11 @@ class MatchTest {
         assertEquals("Unrecognized Valorant Agent", match21.agentType());
         assertEquals("Unrecognized Valorant Agent", match21.getAgent());
 
+    }
+
+    @Test
+    public void testToJson() {
+        JSONObject obj = match3.toJson();
+        assertEquals(obj.getString("date"), "11/03/2023");
     }
 }

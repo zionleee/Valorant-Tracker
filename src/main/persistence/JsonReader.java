@@ -33,6 +33,7 @@ public class JsonReader {
         return contentBuilder.toString();
     }
 
+    //EFFECTS: loads previously saved match history
     public MatchHistory loadMatchHistory() throws IOException {
         MatchHistory history = new MatchHistory();
         JSONObject matchHistory = new JSONObject(readFile(source));

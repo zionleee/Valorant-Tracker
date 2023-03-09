@@ -79,19 +79,6 @@ public class MatchHistory {
     }
 
 
-    // EFFECTS: returns this as JSON object
-    public JSONObject toJson() {
-        JSONObject obj = new JSONObject();
-        JSONArray array = new JSONArray();
-        if (matches.size() > 0) {
-            for (Match match : matches) {
-                array.put(match.toJson());
-            }
-        }
-        obj.put("matches", array);
-        return obj;
-    }
-
 
 }
 
