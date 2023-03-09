@@ -39,8 +39,10 @@ public class JsonReader {
         JSONArray arr = matchHistory.getJSONArray("matchHistory");
         for (int index = 0; index < arr.length(); index++) {
             JSONObject matchObj = arr.getJSONObject(index);
-            Match match = new Match(matchObj.getString("date"), matchObj.getBoolean("win"), matchObj.getString("agent"),
-                    matchObj.getString("map"), matchObj.getDouble("kill"), matchObj.getDouble("death"), matchObj.getDouble("assist"));
+            Match match = new Match(matchObj.getString("date"), matchObj.getBoolean("win"),
+                    matchObj.getString("agent"),
+                    matchObj.getString("map"), matchObj.getDouble("kill"),
+                    matchObj.getDouble("death"), matchObj.getDouble("assist"));
             history.addMatch(match);
         }
         return history;

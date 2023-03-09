@@ -2,9 +2,6 @@ package model;
 
 import org.json.JSONObject;
 
-import javax.swing.*;
-import java.text.SimpleDateFormat;
-
 //The Match class represents a Valorant Match
 public class Match {
 
@@ -134,7 +131,6 @@ public class Match {
         return mapType();
     }
 
-    //TODO: edited kda --> int to double
     public double getKill() {
         return kill;
     }
@@ -153,9 +149,7 @@ public class Match {
         return kda;
     }
 
-//    public String serialize() {
-//        return date + "-" + win + "-" + agent + "-" + map + " ";
-//    }
+
 
     // EFFECTS: returns this as JSON object
     public JSONObject toJson() {

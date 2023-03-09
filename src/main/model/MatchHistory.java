@@ -3,13 +3,6 @@ package model;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-import persistence.JsonReader;
-import persistence.JsonWriter;
-
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -77,43 +70,15 @@ public class MatchHistory {
                 matchList.add(match);
             }
         }
-        //TODO: delete later--> testing search
+
         if (matchList.size() == 0) {
             System.out.println("no matches found");
         }
 
         return matchList;
     }
-// prev code added before p1
-//    public boolean loadDataFromSave(String path) {
-//        try {
-//            File file = FileManager.getFile(path);
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//
-//        return false;
-//    }
-
-    //    public boolean saveData(String path) {
-//        try {
-//            File file = FileManager.getFile(path);
-//            FileWriter writer = new FileWriter(file);
-//            for (Match match : matches) {
-//                writer.append("");
-//            }
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//            return false;
-//        }
-//        return false;
-//    }
 
 
-
-
-//TODO:
     // EFFECTS: returns this as JSON object
     public JSONObject toJson() {
         JSONObject obj = new JSONObject();
@@ -128,47 +93,6 @@ public class MatchHistory {
     }
 
 
-//    //EFFECTS: returns things in this workroom as a JSON array
-//    private JSONArray matchesToJson() {
-//        JSONArray jsonArray = new JSONArray();
-//
-//        for (Match m : matches) {
-//            jsonArray.put(m.toJson());
-//        }
-//        return jsonArray;
-//    }
-//
-//    public void initializeFromJson(JSONObject obj) {
-//
-//        JSONArray array = obj.getJSONArray("matches");
-//        matches.clear();
-//        for (int i = 0; i < array.length(); i++) {
-//            matches.add(new Match(array.getJSONObject(i)));
-//        }
-//    }
-//
-//    public void saveSession() {
-//        try {
-//            jsonWriter.open();
-//            jsonWriter.write(this);
-//            jsonWriter.close();
-//            logger.logEvent(new Event("Saving " + matches.size() + " sessions to file."));
-//        } catch (FileNotFoundException fileEx) {
-//            fileEx.printStackTrace();
-//            logger.logEvent(new Event("Failed to save session. FileNotFoundException."));
-//        }
-//    }
-//
-//    public void loadSession() {
-//        try {
-//            initializeFromJson(jsonReader.getMatches());
-//            logger.logEvent(new Event("Loaded " + matches.size() + " previous sessions."));
-////            System.out.println("Loaded pomodoroTimer from " + JSON_STORE);
-//        } catch (IOException e) {
-//            System.out.println("Unable to read from file: " + JSON_STORE);
-//            logger.logEvent(new Event("Failed to load previous sessions. IOException."));
-//        }
-//    }
 }
 
 

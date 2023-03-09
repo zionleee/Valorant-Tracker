@@ -33,35 +33,20 @@ public class ValorantPerformanceApp {
     //MODIFIES: this
     //EFFECTS: processes user input
     private void runTracker() {
-        // if instance not created yet --> instantiate new history
-        // else, use history already created
-
-//        if (playerValorantCareer == null) {
-//            init();
-//        } else {
-//            input = new Scanner(System.in);
-//            input.useDelimiter("\n");
-//        }
-
         init();
-
         boolean keepGoing = true;
         String command = "";
-
         while (keepGoing) {
             displayMenu();
             command = input.next();
             command = command.toLowerCase();
-
             if (command.equals("x")) {
                 keepGoing = false;
             } else {
                 processCommand(command);
             }
         }
-
         System.out.println("\nGoodbye!");
-
     }
 
 
@@ -109,7 +94,7 @@ public class ValorantPerformanceApp {
         System.out.println("\tx -> exit app");
     }
 
-
+    @SuppressWarnings("methodlength")
     //MODIFIES: this
     //EFFECTS: records match to match history with date, WinOrLose, agent, map, and k, d, a
     private void recordMatch() {
@@ -132,9 +117,7 @@ public class ValorantPerformanceApp {
         System.out.print("Enter number of assists: ");
         double a = input.nextDouble();
         Match match = new Match(date, win, agent, map, k, d, a);
-
         this.playerValorantCareer.addMatch(match);
-
         if (playerValorantCareer.getNumTotalGames() > 0) {
             System.out.println("===> Match has been recorded");
         }
@@ -198,9 +181,8 @@ public class ValorantPerformanceApp {
         System.out.println("WIN RATE: " + df.format(winRate) + "%");
     }
 
-    //TODO:
 
-    // EFFECTS: saves the workroom to file
+    // EFFECTS: saves the match history to file
     private void saveSession() {
         try {
             jsonWriter.open();
@@ -213,7 +195,7 @@ public class ValorantPerformanceApp {
     }
 
     // MODIFIES: this
-    // EFFECTS: loads workroom from file
+    // EFFECTS: loads match history from file
     private void reloadSession() {
         try {
             playerValorantCareer = jsonReader.loadMatchHistory();
