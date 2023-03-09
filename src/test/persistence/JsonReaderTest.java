@@ -5,7 +5,6 @@ import model.MatchHistory;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -27,7 +26,7 @@ class JsonReaderTest {
     }
 
     @Test
-    void testReaderEmptyWorkRoom() {
+    void testReaderEmptyMatchHistory() {
         JsonReader reader = new JsonReader(TEST_PATH_EMPTY);
         try {
             MatchHistory matchHistory = reader.loadMatchHistory();
@@ -46,18 +45,4 @@ class JsonReaderTest {
             fail("Couldn't read from file");
         }
     }
-//    @Test
-//    void testReaderGeneralWorkRoom() {
-//        JsonReader reader = new JsonReader("./data/testReaderGeneralWorkRoom.json");
-//        try {
-//            WorkRoom wr = reader.read();
-//            assertEquals("My work room", wr.getName());
-//            List<Thingy> thingies = wr.getThingies();
-//            assertEquals(2, thingies.size());
-//            checkThingy("needle", Category.STITCHING, thingies.get(0));
-//            checkThingy("saw", Category.WOODWORK, thingies.get(1));
-//        } catch (IOException e) {
-//            fail("Couldn't read from file");
-//        }
-//    }
 }

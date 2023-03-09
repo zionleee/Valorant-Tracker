@@ -30,7 +30,7 @@ class JsonWriterTest  {
     }
 
     @Test
-    void testWriterEmptyWorkroom() {
+    void testWriterEmptyMatchHistory() {
         try {
             MatchHistory history = new MatchHistory();
             JsonWriter writer = new JsonWriter("./data/MatchHistoryTestEmpty1.json");
@@ -48,7 +48,7 @@ class JsonWriterTest  {
     }
 
     @Test
-    void testWriterGeneralWorkroom() {
+    void testWriterSingleMatchHistory() {
         try {
             MatchHistory history = new MatchHistory();
             Match match = new Match("1/1/9", true, "b", "a", 1, 1, 1 );
@@ -66,8 +66,6 @@ class JsonWriterTest  {
             List<Match> matches = history.getMatchHistory();
             Match m = matches.get(0);
             assertEquals(m.getDate(), "1/1/9");
-//            checkThingy("saw", Category.METALWORK, thingies.get(0));
-//            checkThingy("needle", Category.STITCHING, thingies.get(1));
 
         } catch (IOException e) {
             fail("Exception should not have been thrown");
