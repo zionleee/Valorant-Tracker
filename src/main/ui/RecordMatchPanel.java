@@ -17,7 +17,7 @@ public class RecordMatchPanel extends JFrame {
     private Match match;
 
 
-    @SuppressWarnings({"methodLength", "checkstyle:SuppressWarnings", "checkstyle:OperatorWrap"})
+    @SuppressWarnings("methodlength")
     public RecordMatchPanel(ValorantPerformanceApp app) {
         super("Record Match Panel");
         this.app = app;
@@ -35,8 +35,8 @@ public class RecordMatchPanel extends JFrame {
         recordPanel.add(dateField);
         recordPanel.add(new JLabel("Win: "));
         recordPanel.add(winCheckBox);
-        recordPanel.add(new JLabel("Agent (b, v, o, h, a, kj, cyp, sa, c, so, k, f, br, sk, phx, j, r, ra, y, n)" +
-                " : "));
+        recordPanel.add(new JLabel("Agent (b, v, o, h, a, kj, cyp, sa, c, so, k, f, br, sk, phx, j, r, ra, y, n)"
+                + " : "));
         recordPanel.add(agentField);
         recordPanel.add(new JLabel("Map: (a=Ascent, f=Fracture, h=Haven, i=Icebox, l=Lotus, p=Pearl , s=Split)"));
         recordPanel.add(mapField);
