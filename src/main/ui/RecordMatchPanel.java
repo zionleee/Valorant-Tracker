@@ -21,18 +21,6 @@ public class RecordMatchPanel extends JFrame {
         super("Record Match Panel");
         this.app = app;
 
-//        JButton reloadBtn = new JButton("Reload Match History");
-//        reloadBtn.addActionListener(new ActionListener() {
-//            public void actionPerformed(ActionEvent e) {
-//                int option = JOptionPane.showConfirmDialog(MyGUI.this,
-//                        "Are you sure you want to reload the match history?",
-//                        "Reload Match History", JOptionPane.YES_NO_OPTION);
-//                if (option == JOptionPane.YES_OPTION) {
-//                    // Reload match history !!!
-//                    matchHistory.reloadSession();
-//                }
-//            }
-//        });
 
         JPanel recordPanel = new JPanel(new GridLayout(8, 2));
         JTextField dateField = new JTextField();
@@ -92,11 +80,5 @@ public class RecordMatchPanel extends JFrame {
         setVisible(true);
     }
 
-//    public static void main(String[] args) {
-//        SwingUtilities.invokeLater(new Runnable() {
-//            public void run() {
-//                new MyGUI();
-//            }
-//        });
-//    }
+
 }
