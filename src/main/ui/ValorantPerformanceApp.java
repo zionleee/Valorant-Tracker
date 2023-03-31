@@ -5,15 +5,16 @@ import model.MatchHistory;
 import persistence.JsonReader;
 import persistence.JsonWriter;
 
+import javax.swing.*;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
 import java.util.Scanner;
 
 
+
 //Valorant Performance Application
-public class ValorantPerformanceApp {
+public class ValorantPerformanceApp extends JFrame {
     private MatchHistory playerValorantCareer;
     private Scanner input;
 
@@ -21,14 +22,109 @@ public class ValorantPerformanceApp {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
+//    private final JFrame frame;
+    private  MatchHistoryPanel historyPanel;
+    private  RecordMatchPanel recordMatchPanel;
 
+
+
+    @SuppressWarnings("methodlength")
     //EFFECTS: runs the Valorant Performance Tracker Application
     public ValorantPerformanceApp() {
+//        SplashScreen.showSplash(); //splash screen
+//        try {
+//            Thread.sleep(3000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+//        SplashScreen.hideSplash();
+
+        //TODO: RELOAD MATCH HISTORY POP! ***UP NOT WORKING***
+        // if YES: reload history and do stuff w that
+        // if NO: work with empty match history
+
+
+//        JButton reloadButton = new JButton("Reload");
+//        reloadButton.addActionListener(e -> {
+//            ReloadMatchHistoryPopup popup = new ReloadMatchHistoryPopup(this);
+//            popup.setVisible(true);
+//
+//            if (popup.shouldReload()) {
+//                reloadSession();
+//                JOptionPane.showMessageDialog(this, "Match history reloaded successfully.");
+//            }
+//        });
+        //historyPanel = new MatchHistoryPanel(playerValorantCareer);
+        //recordMatchPanel = new RecordMatchPanel(playerValorantCareer);
+
+//        frame = new JFrame("Valorant Performance Tracker");
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//        frame.setSize(600, 400);
+//        frame.setLayout(new BorderLayout());
+//        // Add panels to frame
+//        JPanel panel = new JPanel(new GridLayout(2, 1));
+//        panel.add(recordMatchPanel);
+//        panel.add(historyPanel);
+//        frame.add(panel, BorderLayout.CENTER);
+//
+//        // Display the frame
+//        frame.setVisible(true);
+
+//        createGUI();
+        //TODO: SHOW MATCH HISTORY NOT WORKING
+//        showMatchesPanel();
+//        SwingUtilities.invokeLater(new Runnable() {
+//            public void run() {
+//                new RecordMatchPanel(playerValorantCareer);
+//            }
+//        });
+
+
+        //UP TO HERE
         jsonWriter = new JsonWriter(JSON_STORE);
         jsonReader = new JsonReader(JSON_STORE);
         runTracker();
 
     }
+
+    public MatchHistory getMatchHistory() {
+        return playerValorantCareer;
+    }
+
+//    public void createGUI() {
+//        // Create the JFrame and set properties
+//        JFrame frame = new JFrame("Valorant Performance");
+//        frame.setSize(800, 600);
+//        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//
+//        // Create the MatchHistoryPanel and add it to the frame
+//        MatchHistoryPanel matchHistoryPanel = new MatchHistoryPanel(playerValorantCareer.getMatchHistory());
+//        frame.add(matchHistoryPanel);
+//
+//        // Create the RecordMatchPanel and add it to the frame
+//        RecordMatchPanel recordMatchPanel = new RecordMatchPanel(playerValorantCareer.getMatchHistory());
+//        frame.add(recordMatchPanel);
+//
+//        // Set the frame to be visible
+//        frame.setVisible(true);
+//    }
+
+//    private void showMatchesPanel() {
+//        if (playerValorantCareer != null) {
+//            JFrame frame = new JFrame("Valorant Performance");
+//            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//            frame.setSize(500, 500);
+//            // creating an instance of MatchHistoryPanel
+//            MatchHistoryPanelTwo matchHistoryPanel = new MatchHistoryPanelTwo(playerValorantCareer);
+//            // adding the matchHistoryPanel to the JFrame
+//            frame.add(matchHistoryPanel);
+//            // setting the JFrame visible
+//            frame.setVisible(true);
+//        }
+//    }
+
+
+
 
     //MODIFIES: this
     //EFFECTS: processes user input
@@ -79,6 +175,10 @@ public class ValorantPerformanceApp {
 //        playerValorantCareer.loadDataFromSave(PATH);
         input = new Scanner(System.in);
         input.useDelimiter("\n");
+
+        SwingUtilities.invokeLater(() -> {
+            new MainMenu(this);
+        });
     }
 
     // EFFECTS: displays menu of options to user
@@ -121,6 +221,10 @@ public class ValorantPerformanceApp {
         if (playerValorantCareer.getNumTotalGames() > 0) {
             System.out.println("===> Match has been recorded");
         }
+    }
+
+    public void recordMatch(Match match) {
+        this.playerValorantCareer.addMatch(match);
     }
 
 
@@ -183,7 +287,7 @@ public class ValorantPerformanceApp {
 
 
     // EFFECTS: saves the match history to file
-    private void saveSession() {
+    public void saveSession() {
         try {
             jsonWriter.open();
             jsonWriter.write(playerValorantCareer);
@@ -196,7 +300,7 @@ public class ValorantPerformanceApp {
 
     // MODIFIES: this
     // EFFECTS: loads match history from file
-    private void reloadSession() {
+    public void reloadSession() {
         try {
             playerValorantCareer = jsonReader.loadMatchHistory();
             if (playerValorantCareer == null) {
@@ -210,9 +314,12 @@ public class ValorantPerformanceApp {
     }
 
 
-
-
 }
+
+
+
+
+
 
 
 

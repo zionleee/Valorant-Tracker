@@ -32,12 +32,6 @@ public class Match {
         this.assist = a;
     }
 
-//    public Match(JSONObject jsonObject) {
-//        this(match.getLong("workPeriod"), session.getLong("restPeriod"),
-//                session.getString("workSubject"), session.getString("restSubject"));
-//    }
-
-
     public String getDate() {
         return date;
     }
@@ -169,3 +163,4 @@ public class Match {
 
 
 }
+
