@@ -27,9 +27,9 @@ public class RecordMatchPanel extends JFrame {
         JCheckBox winCheckBox = new JCheckBox();
         JTextField agentField = new JTextField();
         JTextField mapField = new JTextField();
-        JTextField kField = new JTextField();
-        JTextField dField = new JTextField();
-        JTextField aField = new JTextField();
+        JTextField killField = new JTextField();
+        JTextField deathField = new JTextField();
+        JTextField assistField = new JTextField();
         recordPanel.add(new JLabel("Date (dd/MM/yyyy): "));
         recordPanel.add(dateField);
         recordPanel.add(new JLabel("Win: "));
@@ -40,11 +40,11 @@ public class RecordMatchPanel extends JFrame {
         recordPanel.add(new JLabel("Map: (a=Ascent, f=Fracture, h=Haven, i=Icebox, l=Lotus, p=Pearl , s=Split)"));
         recordPanel.add(mapField);
         recordPanel.add(new JLabel("Kills: "));
-        recordPanel.add(kField);
+        recordPanel.add(killField);
         recordPanel.add(new JLabel("Deaths: "));
-        recordPanel.add(dField);
+        recordPanel.add(deathField);
         recordPanel.add(new JLabel("Assists: "));
-        recordPanel.add(aField);
+        recordPanel.add(assistField);
 
         JButton recordBtn = new JButton("Record Match");
         recordBtn.addActionListener(new ActionListener() {
@@ -53,9 +53,9 @@ public class RecordMatchPanel extends JFrame {
                 boolean win = winCheckBox.isSelected();
                 String agent = agentField.getText();
                 String map = mapField.getText();
-                double k = Double.parseDouble(kField.getText());
-                double d = Double.parseDouble(dField.getText());
-                double a = Double.parseDouble(aField.getText());
+                double k = Double.parseDouble(killField.getText());
+                double d = Double.parseDouble(deathField.getText());
+                double a = Double.parseDouble(assistField.getText());
 
                 //TODO: this is not adding match to match history!!!!
                 match = new Match(date, win, agent, map, k, d, a);
