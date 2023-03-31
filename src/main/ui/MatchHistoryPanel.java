@@ -8,7 +8,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 
-//represents a match history panel
+//represents a match history GUI panel that displays Match History
 public class MatchHistoryPanel extends JFrame {
     private final List<Match> matchHistory;
     private final JTable table;
@@ -32,8 +32,8 @@ public class MatchHistoryPanel extends JFrame {
         refreshTable();
     }
 
+
     public void refreshTable() {
-        // Clear the table
         tableModel.setRowCount(0);
 
         // Add each match to the table model

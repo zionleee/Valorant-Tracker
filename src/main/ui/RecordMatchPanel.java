@@ -9,13 +9,14 @@ import java.awt.*;
 import java.awt.event.*;
 import java.util.List;
 
-//represents a panel for recording a match and adding it to match history
+//represents a GUI panel for recording a match and adding it to match history
 public class RecordMatchPanel extends JFrame {
 
     private ValorantPerformanceApp app;
     private MatchHistory matchHistory;
     private Match match;
-    
+
+
     @SuppressWarnings({"methodLength", "checkstyle:SuppressWarnings", "checkstyle:OperatorWrap"})
     public RecordMatchPanel(ValorantPerformanceApp app) {
         super("Record Match Panel");

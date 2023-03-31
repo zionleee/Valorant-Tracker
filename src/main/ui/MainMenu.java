@@ -13,6 +13,7 @@ public class MainMenu extends JFrame implements ActionListener {
 
     private final ValorantPerformanceApp app;
 
+    //EFFECTS: displays buttons
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     public MainMenu(ValorantPerformanceApp app) {
         this.app = app;
@@ -49,6 +50,7 @@ public class MainMenu extends JFrame implements ActionListener {
 
     }
 
+    //EFFECTS: performs actions when buttons are pressed
     @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
     @Override
     public void actionPerformed(ActionEvent e) {
