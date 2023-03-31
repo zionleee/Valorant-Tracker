@@ -51,7 +51,7 @@ public class MainMenu extends JFrame implements ActionListener {
     }
 
     //EFFECTS: performs actions when buttons are pressed
-    @SuppressWarnings({"checkstyle:MethodLength", "checkstyle:SuppressWarnings"})
+    @SuppressWarnings("methodlength")
     @Override
     public void actionPerformed(ActionEvent e) {
         String action = e.getActionCommand();
