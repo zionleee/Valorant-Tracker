@@ -21,7 +21,6 @@ public class RecordMatchPanel extends JFrame {
         super("Record Match Panel");
         this.app = app;
 
-
         JPanel recordPanel = new JPanel(new GridLayout(8, 2));
         JTextField dateField = new JTextField();
         JCheckBox winCheckBox = new JCheckBox();
@@ -57,12 +56,11 @@ public class RecordMatchPanel extends JFrame {
                 double d = Double.parseDouble(deathField.getText());
                 double a = Double.parseDouble(assistField.getText());
 
-                //TODO: this is not adding match to match history!!!!
+
                 match = new Match(date, win, agent, map, k, d, a);
                 app.recordMatch(match);
                 System.out.println("Recorded match successfully");
-//                matchHistory.addMatch(match);
-//                recordMatch(date, win, agent, map, k, d, a);
+//
 
                 JOptionPane.showMessageDialog(RecordMatchPanel.this, "Match recorded!");
             }
