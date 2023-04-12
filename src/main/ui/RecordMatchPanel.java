@@ -13,7 +13,6 @@ import java.util.List;
 public class RecordMatchPanel extends JFrame {
 
     private ValorantPerformanceApp app;
-    private MatchHistory matchHistory;
     private Match match;
 
 

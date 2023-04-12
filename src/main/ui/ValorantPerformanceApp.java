@@ -22,9 +22,6 @@ public class ValorantPerformanceApp extends JFrame {
     private JsonWriter jsonWriter;
     private JsonReader jsonReader;
 
-//    private final JFrame frame;
-    private  MatchHistoryPanel historyPanel;
-    private  RecordMatchPanel recordMatchPanel;
 
 
 
@@ -97,7 +94,7 @@ public class ValorantPerformanceApp extends JFrame {
     // EFFECTS: initializes player tracker profile with empty match history
     private void init() {
         this.playerValorantCareer = new MatchHistory();
-//        playerValorantCareer.loadDataFromSave(PATH);
+
         input = new Scanner(System.in);
         input.useDelimiter("\n");
 
@@ -158,8 +155,7 @@ public class ValorantPerformanceApp extends JFrame {
         displayMatches(playerValorantCareer.getMatchHistory());
     }
 
-    //TODO: problem-> "No matches found because match history is not being saved
-    // MUST FIX THIS AND MAKE IT WORK!!!!!!!!!!!!!!!
+
     //EFFECT: displays matches played on date searched
     private void displaySearchedMatches() {  //MatchHistory --> List<Match>
         System.out.print("Enter search date (dd/MM/yyyy): ");

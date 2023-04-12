@@ -6,17 +6,22 @@ import java.util.List;
 // The MatchHistory class represents all recorded Matches
 public class MatchHistory {
     private List<Match> matches;
+    private final EventLog logger;
 
 
     //EFFECTS: creates a MatchHistory with no matches recorded with initial kdaRatio & winRate of 0
     public MatchHistory() {
         matches = new ArrayList<>();
+        logger = EventLog.getInstance();
     }
 
     //EFFECTS: adds a match to matchHistory
     //MODIFIES: this
     public void addMatch(Match match) {
         matches.add(match);
+        logger.logEvent(new Event("New match recorded for date: " + match.getDate() + "\n"
+                + "  ==> Victory:" + match.isWin() + " Agent:" + match.getAgent() + " Map:" + match.getMap()
+                + " K/D/A:" + match.getKda()));
     }
 
 
@@ -65,16 +70,19 @@ public class MatchHistory {
         for (Match match : matches) {
             if (match.getDate().equals(date)) {
                 matchList.add(match);
+                logger.logEvent(new Event("Match search successful for date: " + date + "\n"
+                        + "  ==> Victory:" + match.isWin() + " Agent:" + match.getAgent() + " Map:" + match.getMap()
+                        + " K/D/A:" + match.getKda()));
             }
         }
 
         if (matchList.size() == 0) {
             System.out.println("no matches found");
+            logger.logEvent(new Event("Match search unsuccessful for date: " + date));
         }
 
         return matchList;
     }
-
 
 
 }

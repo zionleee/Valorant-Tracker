@@ -24,3 +24,22 @@ Valorant performance tracker in order to record and check on my progress.
 - User wants to save Valorant Match History
 - User chooses to reload previously saved Valorant Match History
 
+## Phase 4: Task 3
+Upon reflection of my project, a significant enhancement I would implement to improve the functionality and robustness 
+of the application is converting the Match class into a superclass and creating subclasses for various game modes. 
+This change would provide users with more options beyond recording only competitive/ranked matches. 
+For example, subclasses such as DeathMatch, SpikeRush, and SwiftPlay could inherit all behaviors from 
+Match while incorporating their own unique behaviors.
+
+Although I am generally satisfied with my program, one area for improvement would be the way it handles date. 
+Currently, when a user records a match, they are required to manually enter the date in the specific format (dd/MM/yyyy). 
+If I had more time, I would research and incorporate functionality that would allow the program to automatically 
+retrieve the current date when a user records a match. Lastly, I would optimize my 
+entire application by reducing redundancy and improving readability. Specifically, I would revise the Match class to use 
+a HashMap to store values for Maps and Agents and in the RecordMatchPanel class, I would improve readability 
+by creating a method for adding labels instead of manually creating each label.
+
+
+
+
+

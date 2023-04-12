@@ -18,11 +18,11 @@ public class MainMenu extends JFrame implements ActionListener {
     public MainMenu(ValorantPerformanceApp app) {
         this.app = app;
         // Set the title and size of the frame
-        setTitle("Valorant Stat Tracker");
+        setTitle("Valorant Performance Tracker");
         setSize(300, 200);
 
         JPanel panel = new JPanel();
-        // Create a button
+        // Create a button //create a method instead!!!
         JButton button = new JButton("Load matches!");
         button.addActionListener(this);
         JButton historyButton = new JButton("Show History");
