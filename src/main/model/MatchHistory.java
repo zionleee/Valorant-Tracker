@@ -16,10 +16,11 @@ public class MatchHistory {
     }
 
     //EFFECTS: adds a match to matchHistory
+    //         logs the event of adding a match and/or reloading previously saved matches
     //MODIFIES: this
     public void addMatch(Match match) {
         matches.add(match);
-        logger.logEvent(new Event("New match recorded for date: " + match.getDate() + "\n"
+        logger.logEvent(new Event("Match recorded for date: " + match.getDate() + "\n"
                 + "  ==> Victory:" + match.isWin() + " Agent:" + match.getAgent() + " Map:" + match.getMap()
                 + " K/D/A:" + match.getKda()));
     }
@@ -63,6 +64,7 @@ public class MatchHistory {
 
     //REQUIRES: MatchHistory is not empty
     //EFFECTS: given a date, returns a list of matches played on that date
+    //         logs the event of searching for a match
     public List<Match> findMatch(String date) {
 
         List<Match> matchList = new ArrayList<>();
@@ -70,7 +72,7 @@ public class MatchHistory {
         for (Match match : matches) {
             if (match.getDate().equals(date)) {
                 matchList.add(match);
-                logger.logEvent(new Event("Match search successful for date: " + date + "\n"
+                logger.logEvent(new Event("Match searched for date: " + date + "\n"
                         + "  ==> Victory:" + match.isWin() + " Agent:" + match.getAgent() + " Map:" + match.getMap()
                         + " K/D/A:" + match.getKda()));
             }
