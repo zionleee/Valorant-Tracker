@@ -10,7 +10,7 @@ Players will be able to view their Valorant **Match History**, **statistics on w
 ## Why I am passionate about this project
 I started playing Valorant, a 5v5 competitive FPS game, in the summer of 2021. I was instantly hooked on the game. 
 I started in Iron 1 and have managed to climb to Diamond 2. I am very passionate and interested in Valorant, thus,
-I choose to use it as the basis for my term project.
+I chose to use it as the basis for my term project.
 As a Valorant player, I am always looking for ways to improve, therefore, I want to build a 
 Valorant performance tracker in order to record and check on my progress.
 
